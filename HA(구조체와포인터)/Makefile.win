@@ -1,0 +1,49 @@
+# Project: HA(구조체,포인터)
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o 구조체를배열로사용.o 포인터1.o 포인터2.o 포인터3.o Call-by-value.o Call-by-reference.o 성적표.o
+LINKOBJ  = main.o 구조체를배열로사용.o 포인터1.o 포인터2.o 포인터3.o Call-by-value.o Call-by-reference.o 성적표.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = HA(구조체,포인터).exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+구조체를배열로사용.o: 구조체를배열로사용.cpp
+	$(CPP) -c 구조체를배열로사용.cpp -o 구조체를배열로사용.o $(CXXFLAGS)
+
+포인터1.o: 포인터1.cpp
+	$(CPP) -c 포인터1.cpp -o 포인터1.o $(CXXFLAGS)
+
+포인터2.o: 포인터2.cpp
+	$(CPP) -c 포인터2.cpp -o 포인터2.o $(CXXFLAGS)
+
+포인터3.o: 포인터3.cpp
+	$(CPP) -c 포인터3.cpp -o 포인터3.o $(CXXFLAGS)
+
+Call-by-value.o: Call-by-value.cpp
+	$(CPP) -c Call-by-value.cpp -o Call-by-value.o $(CXXFLAGS)
+
+Call-by-reference.o: Call-by-reference.cpp
+	$(CPP) -c Call-by-reference.cpp -o Call-by-reference.o $(CXXFLAGS)
+
+성적표.o: 성적표.cpp
+	$(CPP) -c 성적표.cpp -o 성적표.o $(CXXFLAGS)
